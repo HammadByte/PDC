@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDC Connect</title>
+  <link rel="icon" href="./image/jp.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/card.css">
+  <link rel="stylesheet" href="./css/search.css">
+  <link rel="stylesheet" href="./css/content.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  
+  <style>
+    /* Reset default margin and padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .logo h1 {
+      font-size: 24px;
+      color: #0056b3;
+      font-weight: 700;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: #0056b3;
+      margin: 6px 0;
+      transition: background-color 0.3s;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      position: relative;
+      margin-left: 30px;
+    }
+
+    nav a {
+      color: #0056b3;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s, text-decoration 0.3s;
+    }
+
+    nav a:hover {
+      color: #003d7a;
+      text-decoration: underline;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      white-space: nowrap;
+      padding: 10px;
+      border-radius: 8px;
+      min-width: 220px;
+    }
+
+    .dropdown-content a {
+      color: #0056b3;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f5f9;
+      color: #003d7a;
+    }
+
+    nav li:hover .dropdown-content {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav li {
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 440px) {
+      #one {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 461px) {
+      #one {
+        margin-top: 70px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 15px;
+      }
+
+      .logo h1 {
+        font-size: 20px;
+      }
+
+      nav li {
+        margin-bottom: 8px;
+      }
+    }
+
+    .phone {
+      font-size: 16px;
+      /* color: #17a2b8; */
+      color: rgba(0, 106, 235, var(--text-opacity));
+    }
+    .phone:hover{
+      color: #0056b3;
+      cursor: pointer;
+      
+      text-decoration: underline;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      height: 100vh;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/random/1600x900') no-repeat center center;
+      background-size: cover;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-text {
+      max-width: 600px;
+      padding: 0 20px;
+    }
+
+    .hero-text h1 {
+      margin-top: 80px;
+      font-size: 50px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-text p {
+      font-size: 22px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #d0d0d0;
+    }
+
+    .hero-image {
+      max-width: 300px;
+      flex: 1;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .cta {
+      background-color: #28a745;
+      color: #ffffff;
+      padding: 15px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+      margin-top: 20px;
+    }
+
+    .cta:hover {
+      background-color: #218838;
+      transform: translateY(-2px);
+    }
+
+    #its {
+      font-size: small;
+      color: #d0d0d0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+      <img src="./image/jp.png" alt="PDC Logo"></a>
+      <!-- <h1>PDC</h1> -->
+    </div>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Internet</a> <i class="fa-solid fa-angle-down"></i>
+          <div class="dropdown-content">
+            <a href="#">DSL</a>
+            <a href="#">Cable</a>
+            <a href="#">Satellite</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">TV & Streaming</a> <i class="fa-solid fa-angle-down"></i>
+          <div class="dropdown-content">
+            <a href="#">Netflix</a>
+            <a href="#">Hulu</a>
+            <a href="#">Disney+</a>
+            <a href="#">HBO Max</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Providers</a> <i class="fa-solid fa-angle-down"></i>
+          <div class="dropdown-content">
+            <a href="#">Comcast</a>
+            <a href="#">AT&T</a>
+            <a href="#">Verizon</a>
+            <a href="#">Spectrum</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Locations</a> <i class="fa-solid fa-angle-down"></i>
+          <div class="dropdown-content">
+            <a href="#">New York</a>
+            <a href="#">Los Angeles</a>
+            <a href="#">Chicago</a>
+            <a href="#">Houston</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Resources</a> <i class="fa-solid fa-angle-down"></i>
+          <div class="dropdown-content">
+            <a href="#">FAQ</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Support</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="phone">
+      <p><b>+1 (510) 954-0786</b></p>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <div class="hero-image">
+          <img id="one"
+            src="https://www.allconnect.com/wp-content/themes/allconnect/images/illustrations/home-tablet-left.png"
+            alt="Left Image">
+        </div>
+        <div class="hero-text">
+          <h1>Shopping for <br> internet & TV has <br> never been easier</h1>
+          <p>Join the tens of millions of people who trust us to search, <br> compare, and order internet and TV service
+            for their homes.</p>
+          <p id="its"><b>It's quick, easy, and best of all, free.</b></p>
+          <a href="#" class="cta-link">Get started</a>
+        </div>
+        <div class="hero-image">
+          <img id="two" 
+            src="https://www.allconnect.com/wp-content/themes/allconnect/images/illustrations/home-tablet-right.png"
+            alt="Right Image">
+        </div>
+      </div>
+  </section>
+
+
+  <div id="cardbody">
+
+    <div id="service-container">
+      <div class="service-item" id="brand-service" aria-label="30+ Leading Brands">
+        <i class="service-icon fas fa-shopping-cart" aria-hidden="true"></i>
+        <h3>15+ Leading Brands</h3>
+        <p>Shop plans from top internet and TV providers like AT&T, Xfinity, Verizon, and more.</p>
+      </div>
+      <div class="service-item" id="research-service" aria-label="One Place to Research">
+        <i class="service-icon fas fa-globe" aria-hidden="true"></i>
+        <h3>One Place to Research</h3>
+        <p>Use our technology to search providers, compare plans, and order services all on our secure site.</p>
+      </div>
+      <div class="service-item" id="experience-service" aria-label="20+ Years of Experience">
+        <i class="service-icon fas fa-trophy" aria-hidden="true"></i>
+        <h3>10+ Years of Experience</h3>
+        <p>Over 10 years and 46+ experts dedicated to helping you find what you need.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="searchbody">
+    <div id="page-wrapper">
+      <h1 class="section-title">Your Ultimate Connectivity Hub</h1>
+      <div class="content-grid">
+        <div class="text-container" id="text-content">
+          <p>Explore a marketplace with decades of expertise and a vast user base.</p>
+          <p>Leverage over 10 years of research to find accurate plans and pricing from top internet, TV, and streaming
+            providers. Get the best plan tailored just for you.</p>
+          <a href="#" class="cta-link" id="cta-discover">Discover Allconnect</a>
+        </div>
+        <div class="image-box" id="hero-image">
+          <img
+            src="https://www.allconnect.com/wp-content/themes/allconnect/images/preamp/why-allconnect/device-allconnect.jpg?v=1.1"
+            alt="Phone with Allconnect app">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contentbody">
+    <div class="content-wrap" id="unique-main-wrapper">
+      <div class="provider-area" id="unique-provider-list">
+        <div class="logo-grid" id="unique-logo-grid">
+          <a href="https://www.att.com" target="_blank" id="unique-att-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/45c103fd-5060-46e8-a4aa-091520b5a165.webp"
+              alt="AT&T Logo">
+          </a>
+          <a href="https://www.verizon.com" target="_blank" id="unique-verizon-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/5efca3e8-0cb3-4532-8467-a0d4b4c7e9e7.webp"
+              alt="Verizon Logo">
+          </a>
+          <a href="https://www.xfinity.com" target="_blank" id="unique-xfinity-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/3610fd95-9035-4cb3-91bf-c30ba62d1ac9.webp"
+              alt="Xfinity Logo">
+          </a>
+          <a href="https://www.cox.com" target="_blank" id="unique-cox-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/785531e6-518e-42e6-a7b2-294ddf8f24f4.webp"
+              alt="Cox Logo">
+          </a>
+          <a href="https://www.spectrum.com" target="_blank" id="unique-spectrum-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/412f953f-c940-4b6c-b240-23b848a8d8bf.webp"
+              alt="Spectrum Logo">
+          </a>
+          <a href="https://www.optimum.com" target="_blank" id="unique-optimum-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/2a070e89-90a7-44ce-98da-e7d77aed876c.webp"
+              alt="Optimum Logo">
+          </a>
+          <a href="https://www.alticeusa.com" target="_blank" id="unique-altice-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/8d0df35b-0678-417c-ab17-253cf1e45c82.webp"
+              alt="Altice Logo">
+          </a>
+          <a href="https://www.dish.com" target="_blank" id="unique-dish-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/f34060fb-9040-4e70-8d9c-020c61734c8c.webp"
+              alt="Dish Logo">
+          </a>
+          <a href="https://www.centurylink.com" target="_blank" id="unique-centurylink-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/519dbb7e-dd04-445e-9a5f-8c189069b78e.webp"
+              alt="CenturyLink Logo">
+          </a>
+          <a href="https://www.hughesnet.com" target="_blank" id="unique-hughesnet-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/e05e6801-116f-4ad5-a398-74f87cd8e7e7.webp"
+              alt="HughesNet Logo">
+          </a>
+          <a href="https://www.frontier.com" target="_blank" id="unique-frontier-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/e1c0c67d-370e-4bdd-a7ae-930131c44a96.webp"
+              alt="Frontier Logo">
+          </a>
+          <a href="https://www.breezeline.com" target="_blank" id="unique-breezeline-logo">
+            <img src="https://acd-assets.allconnext.com/public/logos/b8bffb69-bfbd-4a73-ad30-b3f9c45d4516.webp"
+              alt="Breezeline Logo">
+          </a>
+        </div>
+        <a href="#" class="expand-providers" id="unique-show-more">Show more providers</a>
+      </div>
+      <div class="info-section" id="unique-info-section">
+        <h2 id="unique-main-heading">Find the Leading Providers in Your Area in 20 Seconds</h2>
+        <p id="unique-main-description">Discover the top <a href="#" class="expand-providers">internet</a>, <a href="#"
+            class="expand-providers">TV</a>, and <a href="#" class="expand-providers">streaming</a> providers with the
+          best offers and most popular plans tailored just for you. Place your order easily and enjoy the results.</p>
+        <a href="#" class="cta-btn" id="unique-cta-about-providers">About Our Providers &gt;</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div id="searchbody">
+    <div id="page-wrapper">
+      <!-- <h1 class="section-title">Your Ultimate Connectivity Hub</h1> -->
+      <div class="content-grid">
+        <div class="text-container" id="text-content">
+            <p id="b1"><b id="b">Shop on your own or get help. <br> Either way, we're here.</b></p>
+          <p>Leverage over 10 years of research to find accurate plans and pricing from top internet, TV, and streaming
+            providers. Get the best plan tailored just for you.</p>
+          <a href="#" class="cta-link" id="cta-discover">Get started</a>
+        </div>
+        <div class="image-box" id="hero-image">
+          <img
+            src="https://www.allconnect.com/wp-content/themes/allconnect/images/preamp/why-allconnect/compare-desktop.png"
+            alt="Phone with Allconnect app">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div id="footerbody">
+  <headerr class="site-header content-wrapper">
+    <div class="brand-logo">
+        <img src="./image/jp.png" alt="PDC Logo">
+        <h1>PDC™</h1>
+    </div>
+    <nav class="navigation-menu">
+        <ul>
+            <li><a href="#">Internet & TV</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Legal</a></li>
+        </ul>
+    </nav>
+</headerr>
+
+<main class="main-content content-wrapper">
+    <section class="info-section">
+        <div class="cta-box">
+            <h3>Need help finding internet & TV providers near you? Give our experts a call:</h3>
+            <p class="contact-details"><a href="#">+1 (510) 954-0786</a></p>
+        </div>
+        <div class="schedule-box">
+            <h4>Schedule</h4>
+            <ul>
+                <li>Monday - Friday: 8:00 a.m. to 10:00 p.m. EST</li>
+                <li>Saturday: 9:00 a.m. to 7:00 p.m. EST</li>
+                <li>Sunday: 10:00 a.m. to 7:00 p.m. EST</li>
+            </ul>
+        </div>
+    </section>
+    <section class="info-section">
+        <h4>Internet & TV</h4>
+        <ul>
+            <li><a href="#">Internet in my area</a></li>
+            <li><a href="#">Cheap internet</a></li>
+            <li><a href="#">Fiber internet</a></li>
+            <li><a href="#">Satellite internet</a></li>
+            <li><a href="#">5G internet</a></li>
+            <li><a href="#">TV providers</a></li>
+            <li><a href="#">Internet & TV bundles</a></li>
+            <li><a href="#">All providers</a></li>
+            <li><a href="#">Resource center</a></li>
+        </ul>
+    </section>
+    <section class="info-section">
+        <h4>Company</h4>
+        <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Partner with us</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Our editorial policy</a></li>
+            <li><a href="#">How Allconnect works</a></li>
+            <li><a href="#">Customer service</a></li>
+        </ul>
+    </section>
+    <section class="info-section">
+        <h4>Legal</h4>
+        <ul>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+            <li><a href="#">Do not sell or share my personal information</a></li>
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">Company IP statement</a></li>
+        </ul>
+    </section>
+    <section class="info-section">
+        <h4>Search internet providers by state</h4>
+        <select>
+            <option value="">Select State</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+        </select>
+        <p>Connect with us:</p>
+        <div class="footer-social-links">
+            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <h3>About Allconnect</h3>
+    <p>Copyright © 2024 Allconnect. A Red Ventures Company. All rights reserved.</p>
+    <p class="footer-disclaimer">
+        Terms and conditions and restrictions apply. All content on this website is proprietary. Pricing per month plus taxes for the length of the contract. <br> Additional fees and terms may apply. Pricing varies by location and availability. All prices are subject to change at any time. <br> May or may not be available based on service address. Speeds may vary.
+    </p>
+    <div class="footer-social-links">
+        <a href="#" target="_blank" aria-label="Twitter"><i id="i" class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" aria-label="Facebook"><i id="i" class="fab fa-facebook-f"></i></a>
+    </div>
+</footer>
+</div>
+
+
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('nav').classList.toggle('active');
+    });
+  </script>
+</body>
+
+</html>
