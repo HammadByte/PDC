@@ -1,13 +1,17 @@
-#cardbody {
-    font-family: 'Roboto', Arial, sans-serif;
+#cardmain {
+
     margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    color: #333;
+}
+
+#cardbody {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #e0f7fa, #80deea);
-    color: #333;
-    padding: 0 10px;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 #service-container {
@@ -26,8 +30,8 @@
 
 .service-item {
     text-align: center;
-    flex: 1;
-    min-width: 250px;
+    flex: 1 1 250px;
+    /* Ensures flex items grow and shrink properly */
     background: #ffffff;
     border-radius: 15px;
     padding: 20px;
@@ -64,7 +68,6 @@
 .service-item h3 {
     margin: 15px 0 10px;
     font-size: 1.4em;
-    color: #333;
     font-weight: 700;
     transition: color 0.3s;
     position: relative;
@@ -94,4 +97,38 @@
 
 .service-item:hover .service-icon {
     color: #004bb5;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .service-item h3 {
+        font-size: 1.2em;
+    }
+
+    .service-item p {
+        font-size: 14px;
+    }
+
+    .service-icon {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        flex: 1 1 100%;
+        /* Full width on small screens */
+    }
+
+    .service-item h3 {
+        font-size: 1.1em;
+    }
+
+    .service-item p {
+        font-size: 13px;
+    }
+
+    .service-icon {
+        font-size: 40px;
+    }
 }

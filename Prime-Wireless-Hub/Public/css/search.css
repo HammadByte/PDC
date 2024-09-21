@@ -97,13 +97,13 @@
 
 
 
-#b{
+#b {
     font-size: xx-large;
     color: #111;
 }
 
 @media (max-width: 490px) {
-    #b1{
+    #b1 {
         margin-top: 70px;
     }
 }

@@ -195,14 +195,14 @@
 .footer-social-links a:hover {
     color: #036bda;
     /* color: #ccc; */
-    
+
 }
 
 .footer-disclaimer {
-    
+
     font-size: 12px;
     color: #999;
-    max-width: 900px center; 
+    max-width: 900px center;
     margin: 0 auto;
 }
 
@@ -290,5 +290,3 @@ select option {
         font-size: 12px;
     }
 }
-
-
