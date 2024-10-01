@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT&T Internet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            width: 90%;
+            max-width: 900px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            text-align: center; /* Center text */
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        .left-side, .right-side {
+            padding: 30px;
+            flex: 1;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .best-overall {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center; /* Center content */
+            align-items: center;
+        }
+
+        .best-overall i {
+            margin-right: 8px;
+            color: #007bff;
+            font-size: 1.5rem;
+        }
+
+        .features {
+            list-style: none;
+            margin: 0;
+            padding: 0 0 20px;
+        }
+
+        .features li {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center; /* Center items */
+            align-items: center;
+        }
+
+        .features i {
+            margin-right: 8px;
+            color: #555;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+            max-width: 250px; /* Wider button */
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px auto; /* Center button */
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .call-to-action {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center; /* Center call to action */
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .call-to-action i {
+            margin-right: 8px;
+            color: #007bff;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .best-overall i {
+                font-size: 1.2rem;
+            }
+
+            .button {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" role="main" aria-labelledby="main-title">
+        <div class="left-side">
+            <h1 id="main-title">AT&T Internet</h1>
+            <div class="best-overall" aria-label="Best overall internet provider">
+                <i class="fas fa-trophy" aria-hidden="true"></i> Best Overall
+            </div>
+            <ul class="features" aria-label="Internet features">
+                <li><i class="fas fa-bolt" aria-hidden="true"></i> Speeds: 10 Mbps – 4,700 Mbps</li>
+                <li><i class="fas fa-dollar-sign" aria-hidden="true"></i> Prices starting at: $55.00/mo.</li>
+            </ul>
+            <a href="#" class="button" role="button" aria-label="View featured plans">View Featured Plans</a>
+        </div>
+        <div class="right-side">
+            <img src="https://www.allconnect.com/wp-content/uploads/2021/05/ATT_RA.png" alt="AT&T logo" style="width: 150px; margin-bottom: 20px;">
+            <a href="#" class="button" role="button" aria-label="Check plans with AT&T">Check Plans with AT&T</a>
+            <div class="call-to-action" aria-label="Contact information">
+                <i class="fas fa-phone-alt" aria-hidden="true"></i> (833) 884-5523
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit-id.js" crossorigin="anonymous"></script>
+</body>
+</html>
