@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial', sans-serif; /* Modern font */
+    background-color: #f4f7fa; /* Softer background color */
+    margin: 0;
+    padding: 20px;
+    color: #444; /* Darker text color for better readability */
+  }
+
+  .provider-container {
+    max-width: 600px; /* Limiting width for better readability */
+    background-color: #ffffff; /* White background for contrast */
+    padding: 40px;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+    margin: auto; /* Center the container */
+  }
+
+  .provider-title {
+    font-size: 28px; /* Larger font size for the heading */
+    font-weight: bold; /* Bold font weight for emphasis */
+    margin-bottom: 20px;
+    color: #0056b3; /* Deep blue header color */
+  }
+
+  .provider-description {
+    font-size: 16px; /* Adjusted font size */
+    line-height: 1.75; /* Improved readability */
+    margin-bottom: 25px; /* Increased spacing */
+  }
+
+  .toggle-button {
+    display: inline-block;
+    padding: 12px 24px; /* Larger padding for the button */
+    background-color: #007bff; /* Button color */
+    color: white;
+    font-weight: bold; /* Bold font weight */
+    text-decoration: none;
+    border-radius: 8px; /* More rounded button */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for button */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+    cursor: pointer; /* Cursor change on hover */
+  }
+
+  .toggle-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+
+  .hidden-info {
+    display: none; /* Hidden by default */
+    margin-top: 20px; /* Spacing above hidden content */
+    padding: 20px;
+    background-color: #e7f3ff; /* Light blue background for hidden content */
+    border-radius: 5px; /* Rounded corners for hidden content */
+    border-left: 5px solid #007bff; /* Left border for emphasis */
+    font-size: 16px; /* Consistent font size */
+    line-height: 1.6; /* Improved readability */
+  }

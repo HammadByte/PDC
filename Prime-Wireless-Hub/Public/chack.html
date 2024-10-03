@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Fiber Internet Providers</title>
     <link rel="stylesheet" href="css/cardd.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -16,12 +17,12 @@
             display: flex;
         }
 
-        .container {
+        .main-container {
             display: flex;
             padding: 20px;
             max-width: 1200px;
             margin: auto;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             width: 100%;
         }
 
@@ -33,30 +34,21 @@
             font-size: 2.5em;
         }
 
-        .content {
+        .content-area {
             overflow-y: auto;
-            height: calc(100vh - 80px);
             padding-right: 10px;
             flex: 1;
-        }
-
-        .content::-webkit-scrollbar {
-            display: none;
-        }
-
-        .content {
-            scrollbar-width: none;
+            min-width: 300px;
         }
 
         .provider-card {
             display: flex;
+            flex-direction: row;
             align-items: center;
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             padding: 20px;
-            width: 100%;
-            max-width: 700px;
             margin-bottom: 20px;
             transition: transform 0.3s, box-shadow 0.3s;
             min-height: 250px;
@@ -117,12 +109,11 @@
         .provider-card img {
             width: 100px;
             height: auto;
-            margin-left: 20px;
+            margin-left: 80px; 
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .table-of-contents {
+        .sidebar {
             position: sticky;
             top: 20px;
             width: 30%;
@@ -135,35 +126,53 @@
             overflow-y: auto;
         }
 
-        .table-of-contents h2 {
+        .sidebar h2 {
             color: #0056b3;
             margin-bottom: 15px;
             font-size: 1.5em;
         }
 
-        .table-of-contents ul {
+        .sidebar ul {
             list-style: none;
             padding: 0;
         }
 
-        .table-of-contents li {
+        .sidebar li {
             margin-bottom: 8px;
             transition: color 0.3s;
             font-size: 0.9em;
             color: #666;
+            cursor: pointer;
         }
 
-        .table-of-contents li:hover {
+        .sidebar li:hover {
             color: #007bff;
+        }
+
+        .dropdown {
+            display: none;
+            flex-direction: column;
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .toggle-dropdown {
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            background-color: #f0f4ff;
+            border: 1px solid #007bff;
+            border-radius: 6px;
+            margin-bottom: 5px;
         }
 
         @media (max-width: 768px) {
             .provider-card {
+                flex-direction: column;
                 width: 100%;
                 margin: 10px 0;
-                flex-direction: column;
-                align-items: flex-start;
             }
 
             .provider-card img {
@@ -172,29 +181,181 @@
                 width: 80%;
             }
 
-            .table-of-contents {
+            .sidebar {
                 width: 100%;
                 margin: 20px 0;
+                height: auto;
+            }
+
+            .sidebar ul {
+                display: none;
+            }
+
+            .sidebar .dropdown {
+                display: flex;
             }
 
             h1 {
                 font-size: 2em;
             }
 
-            .table-of-contents h2 {
+            .sidebar h2 {
                 font-size: 1.3em;
             }
 
-            .table-of-contents li {
+            .sidebar li {
                 font-size: 0.85em;
             }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .provider-card h2 {
+                font-size: 1.5em;
+            }
+
+            .provider-card p {
+                font-size: 1em;
+            }
+
+            .provider-card a {
+                font-size: 1em;
+            }
+
+            .sidebar li {
+                font-size: 0.75em;
+            }
+        }
+
+        .provider-details {
+            max-width: 600px; 
+            background-color: #ffffff; 
+            padding: 40px;
+            border-radius: 15px; 
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
+            margin: auto; 
+        }
+
+        .details-title {
+            font-size: 28px; 
+            font-weight: bold; 
+            margin-bottom: 20px;
+            color: #0056b3; 
+        }
+
+        .details-description {
+            font-size: 16px; 
+            line-height: 1.75; 
+            margin-bottom: 25px; 
+        }
+
+        .read-more-button {
+            display: inline-block;
+            padding: 12px 24px; 
+            background-color: #007bff; 
+            color: white;
+            font-weight: bold; 
+            text-decoration: none;
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+            cursor: pointer; 
+        }
+
+        .read-more-button:hover {
+            background-color: #0056b3; 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+        }
+
+        .hidden-info {
+            display: none; 
+            margin-top: 20px; 
+            padding: 20px;
+            background-color: #e7f3ff; 
+            border-radius: 5px; 
+            border-left: 5px solid #007bff; 
+            font-size: 16px; 
+            line-height: 1.6; 
+        }
+        
+        .contact-info:hover {
+            cursor: pointer;
+            text-decoration: underline;
+            color: #1479e4;
+            font-size: larger;
+        }
+        .fiber-main-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .fiber-action-buttons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .fiber-action-buttons a {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .fiber-action-buttons span {
+            font-size: 1em;
+        }
+        .fiber-provider-comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .fiber-provider-comparison-table th, .fiber-provider-comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        .fiber-provider-comparison-table th {
+            background-color: #343a40;
+            color: #fff;
+        }
+        .fiber-provider-comparison-table td {
+            background-color: #fff;
+        }
+        .fiber-footnote {
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="content">
+    
+    <div class="main-container">
+        <div class="content-area">
             <h1>Best Fiber Internet Providers</h1>
+
+            <!-- Provider Cards -->
             <div class="provider-card">
                 <div class="card-left">
                     <h2>Global Internet Services</h2>
@@ -210,47 +371,193 @@
                 <div class="card-right">
                     <img src="https://www.allconnect.com/wp-content/uploads/2021/05/ATT_RA.png" alt="AT&T logo">
                     <a href="#" class="cta-button" role="button" aria-label="Check plans with AT&T">Check Plans</a>
-                    <div class="contact-section" aria-label="Contact information">
-                        <i class="fas fa-phone-alt" aria-hidden="true"></i> (833) 884-5523
+                    <div class="contact-info" id="contactGlobal" aria-label="Contact information">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i> +1 (510) 954-0786
                     </div>
                 </div>
             </div>
-            <br>
+
             <div class="provider-card">
                 <div class="card-left">
-                    <h2>Global Internet Services</h2>
-                    <div class="award-section" aria-label="Best overall internet provider">
-                        <i class="fas fa-trophy" aria-hidden="true"></i> Best Overall
+                    <h2>Fast Connect Internet</h2>
+                    <div class="award-section" aria-label="Best value internet provider">
+                        <i class="fas fa-trophy" aria-hidden="true"></i> Best Value
                     </div>
                     <ul class="feature-list" aria-label="Internet features">
-                        <li><i class="fas fa-bolt" aria-hidden="true"></i> Speeds: 10 Mbps – 4,700 Mbps</li>
-                        <li><i class="fas fa-dollar-sign" aria-hidden="true"></i> Starting from: $55.00/mo.</li>
+                        <li><i class="fas fa-bolt" aria-hidden="true"></i> Speeds: 25 Mbps – 1,000 Mbps</li>
+                        <li><i class="fas fa-dollar-sign" aria-hidden="true"></i> Starting from: $45.00/mo.</li>
                     </ul>
                     <a href="#" class="cta-button" role="button" aria-label="View featured plans">Explore Plans</a>
                 </div>
                 <div class="card-right">
-                    <img src="https://www.allconnect.com/wp-content/uploads/2021/05/ATT_RA.png" alt="AT&T logo">
-                    <a href="#" class="cta-button" role="button" aria-label="Check plans with AT&T">Check Plans</a>
-                    <div class="contact-section" aria-label="Contact information">
-                        <i class="fas fa-phone-alt" aria-hidden="true"></i> (833) 884-5523
+                    <img src="https://www.allconnect.com/wp-content/uploads/2022/04/logo_frontier-new-color.png" alt="Fast Connect logo">
+                    <a href="#" class="cta-button" role="button" aria-label="Check plans with Fast Connect">Check Plans</a>
+                    <div class="contact-info" id="contactFastConnect" aria-label="Contact information">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i> +1 (123) 456-7890
                     </div>
                 </div>
+            </div>
+            <div class="provider-card">
+                <div class="card-left">
+                    <h2>Ultra Internet Solutions</h2>
+                    <div class="award-section" aria-label="Best high-speed provider">
+                        <i class="fas fa-trophy" aria-hidden="true"></i> Best High-Speed
+                    </div>
+                    <ul class="feature-list" aria-label="Internet features">
+                        <li><i class="fas fa-bolt" aria-hidden="true"></i> Speeds: 100 Mbps – 5,000 Mbps</li>
+                        <li><i class="fas fa-dollar-sign" aria-hidden="true"></i> Starting from: $70.00/mo.</li>
+                    </ul>
+                    <a href="#" class="cta-button" role="button" aria-label="View featured plans">Explore Plans</a>
+                </div>
+                <div class="card-right">
+                    <img src="https://www.allconnect.com/wp-content/uploads/2021/05/verizon-logo_color.png" alt="Ultra Internet Solutions logo">
+                    <a href="#" class="cta-button" role="button" aria-label="Check plans with Ultra Internet Solutions">Check Plans</a>
+                    <div class="contact-info" id="contactUltra" aria-label="Contact information">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i> +1 (987) 654-3210
+                    </div>
+                </div>
+            </div>
+            <div class="provider-card">
+                <div class="card-left">
+                    <h2>Premier Fiber Services</h2>
+                    <div class="award-section" aria-label="Best customer service provider">
+                        <i class="fas fa-trophy" aria-hidden="true"></i> Best Customer Service
+                    </div>
+                    <ul class="feature-list" aria-label="Internet features">
+                        <li><i class="fas fa-bolt" aria-hidden="true"></i> Speeds: 30 Mbps – 2,000 Mbps</li>
+                        <li><i class="fas fa-dollar-sign" aria-hidden="true"></i> Starting from: $60.00/mo.</li>
+                    </ul>
+                    <a href="#" class="cta-button" role="button" aria-label="View featured plans">Explore Plans</a>
+                </div>
+                <div class="card-right">
+                    <img src="https://www.allconnect.com/wp-content/uploads/2022/03/googlefiber.png" alt="Premier Fiber Services logo">
+                    <a href="#" class="cta-button" role="button" aria-label="Check plans with Premier Fiber Services">Check Plans</a>
+                    <div class="contact-info" id="contactPremier" aria-label="Contact information">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i> +1 (321) 654-9870
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="provider-details">
+                <h2 class="details-title">How We Score Internet Providers</h2>
+                <p class="details-description">
+                  We evaluate broadband providers in four categories: affordability, performance, value and customer satisfaction. Each category contains multiple sub-factors, all of which are weighted differently to impact the provider’s overall score.
+                </p>
+                <a class="read-more-button" onclick="toggleContent()">Read more +</a>
+                <div class="hidden-info" id="providerDetails">
+                  <p>
+                    For each sub-factor, we score all providers on a continuous scale of 1 to 5, relative to the industry as a whole. Because the average download speed in America is currently 180 Mbps, for example, we assigned all plans with download speeds between 100 and 299 Mbps a score between 3 and 4. Xfinity’s 200 Mbps plan received a 3.50 score for download speed, while Spectrum’s 400 Mbps plan got a 4.16.
+                  </p>
+                  <p>
+                    We only considered standardized data points in our scoring system. More abstract data like consistency of service and brand reputation is still part of our analysis, but we opted to let our writers address them in the context of each review.
+                  </p>
+                </div>
+            </div>
+            <!-- Repeat other provider cards as needed -->
+            <div class="fiber-main-container">
+                <h1 id="fiber-internet-definition-heading">What is fiber internet?</h1>
+                <p id="fiber-internet-definition">Fiber internet is a type of broadband connection that uses light and glass cables to transmit data signals to deliver an internet connection. This method of transmitting data results in fiber internet being the fastest and most reliable internet type available.</p>
+                <p id="fiber-internet-benefits">Fiber internet providers are almost always the fastest option because they provide symmetrical upload and download speeds, ranging from 100 Mbps to 10+ Gbps. Fiber is also one of the most expensive internet technologies but has the least latency issues.</p>
+                
+                <h2 id="fiber-providers-comparison-heading">Fiber internet providers compared</h2>
+                <p id="fiber-provider-comparison-description">Check to see how fiber internet connections differ from <a href="#">cable</a>. Compare costs and see fiber internet near you. Optimum and Windstream have the lowest starting prices, but Frontier, AT&T and Xfinity have the fastest max download speeds.</p>
+                
+                <div class="fiber-action-buttons" id="fiber-contact-buttons">
+                    <a href="#" id="fiber-near-me-button-link">Fiber internet near me</a>
+                    <span id="fiber-contact-info-text">Or call us today: (844) 894-4852</span>
+                </div>
+                
+                <table class="fiber-provider-comparison-table" id="fiber-isp-comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="fiber-provider-name-header">Provider</th>
+                            <th class="fiber-price-range-header">Price Range<sup>†</sup></th>
+                            <th class="fiber-download-speed-header">Download Speed Range</th>
+                            <th class="fiber-provider-rating-header">Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="fiber-provider-row">
+                            <td class="fiber-provider-name">Google Fiber</td>
+                            <td class="fiber-price-range">$70.00 – $100.00/mo.</td>
+                            <td class="fiber-download-speed">1,000 – 2,000 Mbps</td>
+                            <td class="fiber-provider-rating">4.50 / 5</td>
+                        </tr>
+                        <tr class="fiber-provider-row">
+                            <td class="fiber-provider-name">AT&T</td>
+                            <td class="fiber-price-range">$55.00 – $250.00/mo.<sup>**</sup></td>
+                            <td class="fiber-download-speed">300 – 4,700 Mbps</td>
+                            <td class="fiber-provider-rating">4.43 / 5</td>
+                        </tr>
+                        <tr class="fiber-provider-row">
+                            <td class="fiber-provider-name">Verizon Fios</td>
+                            <td class="fiber-price-range">$34.99 – $84.99/mo.<sup>†</sup></td>
+                            <td class="fiber-download-speed">300 – 2,300 Mbps</td>
+                            <td class="fiber-provider-rating">4.42 / 5</td>
+                        </tr>
+                        <tr class="fiber-provider-row">
+                            <td class="fiber-provider-name">Frontier Fiber</td>
+                            <td class="fiber-price-range">$39.99 – $154.99/mo.</td>
+                            <td class="fiber-download-speed">500 – 5,000 Mbps</td>
+                            <td class="fiber-provider-rating">4.27 / 5</td>
+                        </tr>
+                        <tr class="fiber-provider-row">
+                            <td class="fiber-provider-name">Quantum Fiber</td>
+                            <td class="fiber-price-range">$30.00 – $70.00/mo.</td>
+                            <td class="fiber-download-speed">200 – 940 Mbps</td>
+                            <td class="fiber-provider-rating">4.23 / 5</td>
+                        </tr>
+                        <tr class="fiber-provider-row">
+                            <td class="fiber-provider-name">Ziply Fiber</td>
+                            <td class="fiber-price-range">$10.00 – $300.00/mo.</td>
+                            <td class="fiber-download-speed">100 – 10,000 Mbps</td>
+                            <td class="fiber-provider-rating">3.71 / 5</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="fiber-footnote"><sup>†</sup> Prices may vary based on location and availability. <sup>**</sup> Promotional pricing for new customers only.</p>
             </div>
         </div>
-        <div class="table-of-contents">
+
+        <div class="sidebar">
             <h2>Table of Contents</h2>
-            <ul>
-                <li>Best Fiber Internet Providers</li>
-                <li>What is Fiber Internet?</li>
-                <li>Fiber Internet Providers Compared</li>
-                <li>Fiber Internet Provider Breakdowns</li>
-                <li>Fiber Internet Coverage and Availability</li>
-                <li>Who Should Purchase Fiber Internet?</li>
-                <li>Fiber vs. Other Internet Technologies</li>
-                <li>Our Final Take on Fiber Internet</li>
-                <li>Fiber Internet FAQs</li>
-            </ul>
+            <div class="toggle-dropdown" id="tocToggle">
+                <span>Toggle Table of Contents</span>
+                <span>&#9660;</span>
+            </div>
+            <div class="dropdown" id="tocDropdown">
+                <ul>
+                    <li>Best Fiber Internet Providers</li>
+                    <li>What is Fiber Internet?</li>
+                    <li>Fiber Internet Providers Compared</li>
+                    <li>Fiber Internet Provider Breakdowns</li>
+                    <li>Fiber Internet Coverage and Availability</li>
+                    <li>Who Should Purchase Fiber Internet?</li>
+                    <li>Fiber vs. Other Internet Technologies</li>
+                    <li>Our Final Take on Fiber Internet</li>
+                    <li>Fiber Internet FAQs</li>
+                </ul>
+            </div>
         </div>
     </div>
+
+    <script>
+        const tocToggle = document.getElementById('tocToggle');
+        const tocDropdown = document.getElementById('tocDropdown');
+
+        tocToggle.addEventListener('click', () => {
+            tocDropdown.style.display = tocDropdown.style.display === 'flex' ? 'none' : 'flex';
+            tocToggle.querySelector('span:last-child').innerHTML = tocDropdown.style.display === 'flex' ? '&#9650;' : '&#9660;';
+        });
+
+        function toggleContent() {
+            const content = document.getElementById('providerDetails');
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>

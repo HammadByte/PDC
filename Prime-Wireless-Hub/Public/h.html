@@ -3,152 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Internet Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <title>Fiber Internet Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background-color: #f8f9fa;
             color: #333;
         }
-
-        .info-card {
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            width: 90%;
-            max-width: 700px;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .card-left, .card-right {
+        .fiber-main-container {
+            width: 80%;
+            margin: 0 auto;
             padding: 20px;
-            flex: 1;
         }
-
+        h1, h2 {
+            color: #333;
+        }
         h1 {
-            color: #007bff;
-            font-size: 2.2rem;
+            font-size: 2em;
             margin-bottom: 10px;
         }
-
-        .award-section {
-            background-color: #e7f3ff;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .award-section i {
-            margin-right: 5px;
-            color: #007bff;
-            font-size: 1.5rem;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .feature-list li {
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
             margin-bottom: 10px;
+        }
+        p {
+            font-size: 1em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .fiber-action-buttons {
             display: flex;
-            justify-content: center;
             align-items: center;
+            margin-bottom: 20px;
         }
-
-        .feature-list i {
-            margin-right: 5px;
-            color: #555;
-        }
-
-        .cta-button {
+        .fiber-action-buttons a {
             background-color: #007bff;
-            color: #ffffff;
-            padding: 12px 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            text-align: center;
+            color: #fff;
+            padding: 10px 20px;
             text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s, transform 0.2s;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .fiber-action-buttons span {
+            font-size: 1em;
+        }
+        .fiber-provider-comparison-table {
             width: 100%;
-            max-width: 220px;
-            margin: 10px auto;
-        }
-
-        .cta-button:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        .contact-section {
+            border-collapse: collapse;
             margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 15px;
         }
-
-        .contact-section i {
-            margin-right: 5px;
-            color: #007bff;
-            font-size: 1.2rem;
+        .fiber-provider-comparison-table th, .fiber-provider-comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
         }
-
-        @media (max-width: 600px) {
-            .info-card {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 1.9rem;
-            }
-
-            .cta-button {
-                max-width: 100%;
-            }
+        .fiber-provider-comparison-table th {
+            background-color: #343a40;
+            color: #fff;
+        }
+        .fiber-provider-comparison-table td {
+            background-color: #fff;
+        }
+        .fiber-footnote {
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <div class="info-card" role="main" aria-labelledby="global-title">
-        <div class="card-left">
-            <h1 id="global-title">Global Internet Services</h1>
-            <div class="award-section" aria-label="Best overall internet provider">
-                <i class="fas fa-trophy" aria-hidden="true"></i> Best Overall
-            </div>
-            <ul class="feature-list" aria-label="Internet features">
-                <li><i class="fas fa-bolt" aria-hidden="true"></i> Speeds: 10 Mbps – 4,700 Mbps</li>
-                <li><i class="fas fa-dollar-sign" aria-hidden="true"></i> Starting from: $55.00/mo.</li>
-            </ul>
-            <a href="#" class="cta-button" role="button" aria-label="View featured plans">Explore Plans</a>
+    <div class="fiber-main-container">
+        <h1 id="fiber-internet-definition-heading">What is fiber internet?</h1>
+        <p id="fiber-internet-definition">Fiber internet is a type of broadband connection that uses light and glass cables to transmit data signals to deliver an internet connection. This method of transmitting data results in fiber internet being the fastest and most reliable internet type available.</p>
+        <p id="fiber-internet-benefits">Fiber internet providers are almost always the fastest option because they provide symmetrical upload and download speeds, ranging from 100 Mbps to 10+ Gbps. Fiber is also one of the most expensive internet technologies but has the least latency issues.</p>
+        
+        <h2 id="fiber-providers-comparison-heading">Fiber internet providers compared</h2>
+        <p id="fiber-provider-comparison-description">Check to see how fiber internet connections differ from <a href="#">cable</a>. Compare costs and see fiber internet near you. Optimum and Windstream have the lowest starting prices, but Frontier, AT&T and Xfinity have the fastest max download speeds.</p>
+        
+        <div class="fiber-action-buttons" id="fiber-contact-buttons">
+            <a href="#" id="fiber-near-me-button-link">Fiber internet near me</a>
+            <span id="fiber-contact-info-text">Or call us today: (844) 894-4852</span>
         </div>
-        <div class="card-right">
-            <img src="https://www.allconnect.com/wp-content/uploads/2021/05/ATT_RA.png" alt="AT&T logo" style="width: 120px; margin-bottom: 15px;">
-            <a href="#" class="cta-button" role="button" aria-label="Check plans with AT&T">Check Plans</a>
-            <div class="contact-section" aria-label="Contact information">
-                <i class="fas fa-phone-alt" aria-hidden="true"></i> (833) 884-5523
-            </div>
-        </div>
+        
+        <table class="fiber-provider-comparison-table" id="fiber-isp-comparison-table">
+            <thead>
+                <tr>
+                    <th class="fiber-provider-name-header">Provider</th>
+                    <th class="fiber-price-range-header">Price Range<sup>†</sup></th>
+                    <th class="fiber-download-speed-header">Download Speed Range</th>
+                    <th class="fiber-provider-rating-header">Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="fiber-provider-row">
+                    <td class="fiber-provider-name">Google Fiber</td>
+                    <td class="fiber-price-range">$70.00 – $100.00/mo.</td>
+                    <td class="fiber-download-speed">1,000 – 2,000 Mbps</td>
+                    <td class="fiber-provider-rating">4.50 / 5</td>
+                </tr>
+                <tr class="fiber-provider-row">
+                    <td class="fiber-provider-name">AT&T</td>
+                    <td class="fiber-price-range">$55.00 – $250.00/mo.<sup>**</sup></td>
+                    <td class="fiber-download-speed">300 – 4,700 Mbps</td>
+                    <td class="fiber-provider-rating">4.43 / 5</td>
+                </tr>
+                <tr class="fiber-provider-row">
+                    <td class="fiber-provider-name">Verizon Fios</td>
+                    <td class="fiber-price-range">$34.99 – $84.99/mo.<sup>†</sup></td>
+                    <td class="fiber-download-speed">300 – 2,300 Mbps</td>
+                    <td class="fiber-provider-rating">4.42 / 5</td>
+                </tr>
+                <tr class="fiber-provider-row">
+                    <td class="fiber-provider-name">Frontier Fiber</td>
+                    <td class="fiber-price-range">$39.99 – $154.99/mo.</td>
+                    <td class="fiber-download-speed">500 – 5,000 Mbps</td>
+                    <td class="fiber-provider-rating">4.27 / 5</td>
+                </tr>
+                <tr class="fiber-provider-row">
+                    <td class="fiber-provider-name">Quantum Fiber</td>
+                    <td class="fiber-price-range">$30.00 – $70.00/mo.</td>
+                    <td class="fiber-download-speed">200 – 940 Mbps</td>
+                    <td class="fiber-provider-rating">4.23 / 5</td>
+                </tr>
+                <tr class="fiber-provider-row">
+                    <td class="fiber-provider-name">Ziply Fiber</td>
+                    <td class="fiber-price-range">$10.00 – $300.00/mo.</td>
+                    <td class="fiber-download-speed">100 – 10,000 Mbps</td>
+                    <td class="fiber-provider-rating">3.71 / 5</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="fiber-footnote"><sup>†</sup> Prices may vary based on location and availability. <sup>**</sup> Promotional pricing for new customers only.</p>
     </div>
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit-id.js" crossorigin="anonymous"></script>
 </body>
 </html>

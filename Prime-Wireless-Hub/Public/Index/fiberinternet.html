@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiber Internet Finder</title>
+    <link rel="stylesheet" href="../css/fiber/fiber.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="info-section">
+            <div class="breadcrumbs" aria-label="breadcrumb navigation">
+                <a href="../index.html">🏠</a> > <a href="#">Internet Providers</a> > Fiber Internet Providers
+            </div>
+            <h1 id="main-title">Fiber Internet in Your Area</h1>
+            <p class="description">
+                Experience the unparalleled speed of fiber internet with symmetrical download and upload capabilities, reaching up to 10 Gbps in select areas. Enjoy uninterrupted streaming, gaming, and browsing with the best internet connection available.
+            </p>
+        </div>
+        <div class="form-wrapper" role="form" aria-labelledby="main-title">
+            <h2>Find Internet Providers</h2>
+            <form id="provider-form">
+                <div class="input-group">
+                    <label for="zip-input"><span style="font-size: 1.5rem;">📍</span> 5-digit Zip Code</label>
+                    <input type="text" class="input-field" id="zip-input" placeholder="Enter your zip code" required aria-label="5-digit zip code">
+                </div>
+                <div class="input-group">
+                    <label>Are you moving or have you just moved?</label>
+                    <div class="radio-group">
+                        <input type="radio" id="moving-yes" name="moving-status" value="yes" required aria-label="Moving yes">
+                        <label for="moving-yes">Yes</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="moving-no" name="moving-status" value="no" checked aria-label="Moving no">
+                        <label for="moving-no">No</label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-button">Show Results</button>
+            </form>
+            <div class="footer-note">
+                <p>Need help? <a href="#">Contact us</a></p>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
